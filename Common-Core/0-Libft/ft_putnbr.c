@@ -19,6 +19,10 @@ void ft_putnbr(int nb)
         nb = -nb;
         write(1,"-",1);
     }
+
+
+
+    
     
     if(nb > 9 )
     {
