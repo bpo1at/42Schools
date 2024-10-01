@@ -9,7 +9,10 @@ void ft_putnbr(int nb)
         write(1,"-2147483648",12);
         return ; 
     }
-     
+       
+
+
+       
 
     if(nb<0)
     {
