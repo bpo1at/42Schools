@@ -31,5 +31,7 @@ void ft_putnbr(int nb)
 
     c = (nb%10) + '0';
     write(1,&c,1);
+  
 
+   
 }
