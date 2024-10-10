@@ -36,10 +36,12 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     if(s == NULL)
         return NULL;
         
-    if (start >= strlen(s))
+    if (start >= ft_strlen(s))
         return (ft_strncpy("", 0));
-        
+
+    if (start + len > strlen(s))
+        len = ft_strlen(s) - start;
+
     str2 = ft_strncpy(&s[start],len); //&s[start] = (char *) s + start 
     return (str2);
 }
-  
