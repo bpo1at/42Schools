@@ -3,39 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpolat <bpolat@student.42istanbul.com>     +#+  +:+       +#+        */
+/*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 21:30:52 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/08 21:30:52 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/11 14:18:45 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char static *ft_strcpy(char *dst,char *src)
+char static	*ft_strcpy(char *dst, char *src)
 {
-    int i;
+	int	i;
 
-    i = 0;
-
-    while(src[i] != '\0')
-    {
-        dst[i] = src[i];
-        i++;
-    }
-    dst[i] = '\0';
-    return(dst);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }
 
-char *ft_strdup(char *str)
+char	*ft_strdup(char *str)
 {
-    char *dst;
-    int len;
+	char	*dst;
+	int		len;
 
-    len = ft_strlen(str);
-    dst = (char*)malloc(len + 1);
-    if (dst == NULL)
-        return  (NULL);
-    ft_strcpy(str,dst);
-    return (dst);
+	len = ft_strlen(str);
+	dst = (char *)malloc(len + 1);
+	if (dst == NULL)
+		return (NULL);
+	ft_strcpy(str, dst);
+	return (dst);
 }
