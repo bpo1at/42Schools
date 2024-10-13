@@ -3,49 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpolat <bpolat@student.42istanbul.com>     +#+  +:+       +#+        */
+/*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:55:48 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/12 17:55:48 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/13 14:51:04 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//HEADER VE NORM DÜZENLENECEK 
-
 #include "libft.h"
-
-char **ft_split(char const *s, char c)
-{
-    unsigned int i;
-    int len;
-    char **words;
-    int strn_len;
-    int n;
-
-    strn_len = ft_strlen(s);
-    words = (char **)malloc((strn_len + 1) * sizeof(char *));
-    if(!words)
-        return NULL;
-
-    len = 0;
-    i = 0;
-    n = 0;
-    while(*s)
-    {
-        if (s[i] == c)
-        {
-        words[len] = ft_substr(s, 0, i);
-        len = -1;
-        n++;
-        }
-    len++;
-    i++;
-    }
-    return  (words);
-}
-
-/*
-        #include "libft.h"
 
 static int	count_words(char const *s, char c)
 {
@@ -56,12 +21,12 @@ static int	count_words(char const *s, char c)
 	in_word = 0;
 	while (*s)
 	{
-		if (*s != c && in_word == 0) // Yeni bir kelime başlıyor
+		if (*s != c && in_word == 0)
 		{
 			in_word = 1;
 			count++;
 		}
-		else if (*s == c) // Kelime sona erdi
+		else if (*s == c)
 			in_word = 0;
 		s++;
 	}
@@ -93,7 +58,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	word_count = count_words(s, c); // Kaç kelime olduğunu bul
+	word_count = count_words(s, c);
 	words = (char **)malloc((word_count + 1) * sizeof(char *));
 	if (!words)
 		return (NULL);
@@ -102,19 +67,15 @@ char	**ft_split(char const *s, char c)
 	end = 0;
 	while (s[end])
 	{
-		if (s[end] != c && start == -1) // Kelimenin başlangıcı
+		if (s[end] != c && start == -1)
 			start = end;
 		else if ((s[end] == c || s[end + 1] == '\0') && start != -1)
 		{
-			words[i++] = get_word(s, start, (s[end] == c) ? end : end + 1); // Kelimeyi al
+			words[i++] = get_word(s, start, (s[end] == c) ? end : end + 1);
 			start = -1;
 		}
 		end++;
 	}
-	words[i] = NULL; // Dizinin sonunu belirtmek için NULL koy
+	words[i] = NULL;
 	return (words);
-}       
-        **words = &s[i-len];
-        len = -1;
-        **words++;
-*/
+}
