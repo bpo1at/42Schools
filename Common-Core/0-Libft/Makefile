@@ -10,91 +10,39 @@
 #                                                                              #
 # **************************************************************************** #
 
-Library = libft.a
-
-FILES = ft_memset \
-		ft_bzero \
-		ft_memcpy \
-		ft_memmove \
-		ft_memchr \
-		ft_memcmp \
-		ft_strlen \
-		ft_strlcpy \
-		ft_strlcat \
-		ft_strchr \
-		ft_strrchr \
-		ft_strnstr \
-		ft_strncmp \
-		ft_atoi \
-		ft_isalpha \
-		ft_isdigit \
-		ft_isalnum \
-		ft_isascii \
-		ft_isprint \
-		ft_toupper \
-		ft_tolower \
-		ft_calloc \
-		ft_strdup \
-		ft_putstr \
-		ft_substr \
-		ft_strjoin \
-		ft_strtrim \
-		ft_split \
-		ft_itoa \
-		ft_strmapi \
-		ft_putchar \
-		ft_putchar_fd \
-		ft_putnbr \
-		ft_putstr_fd \
-		ft_putendl_fd \
-		ft_putnbr_fd \
-		ft_striteri
-
-BFILES = ft_lstadd_back \
-		 ft_lstadd_front \
-		 ft_lstclear \
-		 ft_lstdelone \
-		 ft_lstiter \
-		 ft_lstlast \
-		 ft_lstnew \
-		 ft_lstsize \
-		 ft_lstmap
-
-SRC = $(FILES:=.c)
-
-OBJ = $(FILES:=.o)
-
-BSRC = $(BFILES:=.c)
-
-BOBJ = $(BFILES:=.o)
-
+# Variables
+NAME = libft.a
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c \
+      ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
+      ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c \
+      ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c \
+      ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+      ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-OUTNAME = $(Library).a
+BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+            ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-NAME = $(OUTNAME)
+OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-BONUS = $(OBJ) $(BOBJ)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+# Rules
+all: $(NAME)
 
 $(NAME): $(OBJ)
-		ar -rc $(OUTNAME) $(OBJ)
-		
-all: $(NAME)		
+	@ar rcs $(NAME) $(OBJ)
 
-bonus: $(BONUS)
-		ar -rc $(OUTNAME) $(BOBJ)
+bonus: $(OBJ) $(BONUS_OBJ)
+	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 clean:
-		rm -f *.o
+	@rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-		rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
+# Phony
 .PHONY: all clean fclean re bonus

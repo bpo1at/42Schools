@@ -13,24 +13,6 @@
 // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 #include "libft.h"
-#include <stdlib.h>
-
-void static	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	unsigned char	*ptr;
-	unsigned char	*ptr2;
-	size_t			i;
-
-	ptr = (unsigned char *)dst;
-	ptr2 = (unsigned char *)src;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = ptr2[i];
-		i++;
-	}
-	return (dst);
-}
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
