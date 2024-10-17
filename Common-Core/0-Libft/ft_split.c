@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:55:48 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/13 14:51:04 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/17 15:52:54 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,33 +48,43 @@ static char	*get_word(char const *s, int start, int end)
 	return (word);
 }
 
+int	ft_split_malloc(char const *s, char ***words, char c)
+{
+	int	word_count;
+
+	if (!s)
+		return (0);
+	word_count = count_words(s, c);
+	*words = (char **)malloc((word_count + 1) * sizeof(char *));
+	if (!(*words))
+		return (0);
+	return (1);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**words;
 	int		i;
 	int		start;
 	int		end;
-	int		word_count;
 
-	if (!s)
-		return (NULL);
-	word_count = count_words(s, c);
-	words = (char **)malloc((word_count + 1) * sizeof(char *));
-	if (!words)
+	if (!ft_split_malloc(s, &words, c))
 		return (NULL);
 	i = 0;
 	start = -1;
 	end = 0;
-	while (s[end])
+	while (s[end++])
 	{
-		if (s[end] != c && start == -1)
-			start = end;
-		else if ((s[end] == c || s[end + 1] == '\0') && start != -1)
+		if (s[end - 1] != c && start == -1)
+			start = end - 1;
+		else if ((s[end - 1] == c || s[end] == '\0') && start != -1)
 		{
-			words[i++] = get_word(s, start, (s[end] == c) ? end : end + 1);
+			if (s[end - 1] == c)
+				words[i++] = get_word(s, start, end);
+			else
+				words[i++] = get_word(s, start, end + 1);
 			start = -1;
 		}
-		end++;
 	}
 	words[i] = NULL;
 	return (words);

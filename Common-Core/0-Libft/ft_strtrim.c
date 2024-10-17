@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:45:48 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/11 17:39:52 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/17 14:00:58 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ static int	totalnotdelim(const char *str, const char *delim)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *ret;
-	int i;
-	int j;
+	char	*ret;
+	int		i;
+	int		j;
 
 	ret = malloc(totalnotdelim(s1, set) + 1);
 	if (ret == NULL)
 		return (NULL);
-
 	i = 0;
 	j = 0;
 	while (s1[i] != '\0')
