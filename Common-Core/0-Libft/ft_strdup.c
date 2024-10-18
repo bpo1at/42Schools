@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 21:30:52 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/11 14:18:45 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 15:40:49 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char	*ft_strdup(char *str)
 
 	len = ft_strlen(str);
 	dst = (char *)malloc(len + 1);
-	if (dst == NULL)
+	if (!dst)
 		return (NULL);
-	ft_strcpy(str, dst);
+	ft_strcpy(dst, str);
 	return (dst);
 }

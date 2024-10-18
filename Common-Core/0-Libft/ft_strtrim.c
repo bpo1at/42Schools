@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 16:45:48 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/17 14:00:58 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 14:38:03 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,23 @@ static int	isdelim(char c, const char *delim)
 	return (0);
 }
 
-static int	totalnotdelim(const char *str, const char *delim)
-{
-	int	count;
-
-	count = 0;
-	while (*str)
-		if (!isdelim(*str++, delim))
-			count++;
-	return (count);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*ret;
-	int		i;
-	int		j;
+	int		start;
+	int		end;
+	int		len;
 
-	ret = malloc(totalnotdelim(s1, set) + 1);
+	start = 0;
+	while (s1[start] && isdelim(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && isdelim(s1[end - 1], set))
+		end--;
+	len = end - start;
+	ret = malloc(len + 1);
 	if (ret == NULL)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-	{
-		if (!isdelim(s1[i], set))
-			ret[j++] = s1[i];
-		i++;
-	}
-	ret[j] = '\0';
+	ft_strlcpy(ret, &s1[start], len + 1);
 	return (ret);
 }

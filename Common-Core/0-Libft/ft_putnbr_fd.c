@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 15:03:21 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/11 15:09:50 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 13:22:50 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, "-", 1);
 	}
 	if (n > 9)
-		ft_putnbr(n / 10);
+		ft_putnbr_fd(n / 10, fd);
 	c = (n % 10) + '0';
 	write(fd, &c, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 17:13:29 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/13 17:22:55 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 13:21:49 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	 if (!lst || !f)
-        return;
-
+	if (!lst || !f)
+		return ;
 	while (lst)
 	{
 		f((lst)->content);

@@ -6,13 +6,13 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:16:01 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/11 14:29:46 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 16:10:00 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *s)
+int	ft_atoi(const char *s)
 {
 	int				i;
 	int				sign;
@@ -21,7 +21,7 @@ int	ft_atoi(char *s)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (s[i] >= 9 && s[i] <= 13 || s[i] == ' ')
+	while ((s[i] >= 9 && s[i] <= 13) || (s[i] == ' '))
 		i++;
 	if (s[i] == '+' || s[i] == '-')
 	{

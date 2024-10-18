@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 23:28:53 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/11 14:22:43 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 13:24:11 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start >= ft_strlen(s))
 		return (ft_strncpy("", 0));
-	if (start + len > strlen(s))
+	if (start + len > ft_strlen(s))
 		len = ft_strlen(s) - start;
-	str2 = ft_strncpy(&s[start], len);
+	str2 = ft_strncpy((char *)&s[start], len);
 	return (str2);
 }

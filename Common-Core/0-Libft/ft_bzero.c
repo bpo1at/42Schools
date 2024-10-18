@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 13:38:39 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/11 14:19:39 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 13:20:36 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*ptr;
-	int				i;
+	size_t			i;
 
 	ptr = (unsigned char *)s;
 	i = 0;

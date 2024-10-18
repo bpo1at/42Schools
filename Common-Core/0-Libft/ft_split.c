@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:55:48 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/17 15:52:54 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 16:28:42 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ static char	*get_word(char const *s, int start, int end)
 
 	word = (char *)malloc((end - start + 1) * sizeof(char));
 	if (!word)
+	{
+		free(word);
 		return (NULL);
+	}
 	i = 0;
 	while (start < end)
 		word[i++] = s[start++];
@@ -56,6 +59,11 @@ int	ft_split_malloc(char const *s, char ***words, char c)
 		return (0);
 	word_count = count_words(s, c);
 	*words = (char **)malloc((word_count + 1) * sizeof(char *));
+	if (!words)
+	{
+		free(words);
+		return (0);
+	}
 	if (!(*words))
 		return (0);
 	return (1);
@@ -77,12 +85,12 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[end - 1] != c && start == -1)
 			start = end - 1;
-		else if ((s[end - 1] == c || s[end] == '\0') && start != -1)
+		if ((s[end - 1] == c || s[end] == '\0') && start != -1)
 		{
 			if (s[end - 1] == c)
-				words[i++] = get_word(s, start, end);
+				words[i++] = get_word(s, start, end - 1);
 			else
-				words[i++] = get_word(s, start, end + 1);
+				words[i++] = get_word(s, start, end);
 			start = -1;
 		}
 	}

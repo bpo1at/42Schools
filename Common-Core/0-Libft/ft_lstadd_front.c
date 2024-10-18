@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:05:32 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/13 15:40:25 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 13:57:22 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!new || !*lst)
+	if (!new)
 		return ;
 	new->next = *lst;
 	*lst = new;

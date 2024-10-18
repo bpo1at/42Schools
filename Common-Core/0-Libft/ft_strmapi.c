@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:26:38 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/13 14:48:05 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/18 13:13:26 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
-	char			*str;
-	int				len;
+	size_t	i;
+	char	*str;
+	size_t	len;
 
 	if (!s || !f)
 		return (NULL);
