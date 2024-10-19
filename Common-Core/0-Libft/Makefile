@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Variables
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -27,7 +26,6 @@ BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_ba
 OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-# Rules
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -44,5 +42,4 @@ fclean: clean
 
 re: fclean all
 
-# Phony
 .PHONY: all clean fclean re bonus
