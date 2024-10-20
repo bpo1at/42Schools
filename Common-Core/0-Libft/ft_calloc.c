@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 22:36:41 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/11 14:19:37 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/20 14:20:44 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	*ft_calloc(size_t count, size_t size)
 	if (rvalue == NULL)
 		return (NULL);
 	ft_bzero(rvalue, count * size);
-    return (rvalue);
+	return (rvalue);
 }

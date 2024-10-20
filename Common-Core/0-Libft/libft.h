@@ -6,7 +6,7 @@
 /*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 21:52:22 by bpolat            #+#    #+#             */
-/*   Updated: 2024/10/18 16:29:51 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/10/20 17:01:36 by bpolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-/* Part 1 - Libc functions */
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -41,7 +40,6 @@ int					ft_atoi(const char *str);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(char *str);
 
-/* Part 2 - Additional functions */
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
@@ -49,12 +47,14 @@ char				**ft_split(char const *s, char c);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
+void				ft_putstr(char *str);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr(int nb);
 void				ft_putnbr_fd(int n, int fd);
 
-/* Bonus Part - Linked list functions */
 typedef struct s_list
 {
 	void			*content;
