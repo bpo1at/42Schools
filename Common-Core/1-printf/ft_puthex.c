@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpolat <bpolat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: berk <berk@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:50:28 by bpolat            #+#    #+#             */
-/*   Updated: 2024/12/13 13:58:02 by bpolat           ###   ########.fr       */
+/*   Updated: 2024/12/28 20:17:25 by berk             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_puthex(unsigned int n, char format)
 {
